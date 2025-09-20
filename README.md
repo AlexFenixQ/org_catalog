@@ -120,9 +120,9 @@ curl -H "x-api-key: SECRET_KEY_123" http://localhost:8000/organizations/
 
 Доступ к веб-интерфейсу осуществляется по адресу http://localhost:8000/
 
-- /organizations — список организаций, CRUD формы
-- /buildings — список зданий, CRUD формы
-- /activities — дерево деятельностей, CRUD формы
+- [/organizations](http://localhost:8000/organizations/) — список организаций, CRUD формы
+- [/buildings](http://localhost:8000/buildings/) — список зданий, CRUD формы
+- [/activities](http://localhost:8000/activities/) — дерево деятельностей, CRUD формы
 
 ## Миграции Alembic
 
