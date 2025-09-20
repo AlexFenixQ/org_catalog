@@ -39,7 +39,7 @@ def get_organizations_by_activity_tree(db: Session, activity_id: int, max_depth:
 
 def get_organizations_by_geo(db: Session, center: Tuple[float,float], radius_km: float):
     lat_c, lon_c = center
-    km_per_deg = 111  # приближение
+    km_per_deg = 111
     lat_min = lat_c - radius_km/km_per_deg
     lat_max = lat_c + radius_km/km_per_deg
     lon_min = lon_c - radius_km/(km_per_deg*math.cos(math.radians(lat_c)))

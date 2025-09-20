@@ -40,7 +40,7 @@ def create_organization_form(
     name: str = Form(...),
     phone_numbers: str = Form(...),
     building_id: int = Form(...),
-    activity_ids: List[int] = Form(..., alias="activity_ids"),  # <- теперь список чисел
+    activity_ids: List[int] = Form(..., alias="activity_ids"),
     db: Session = Depends(deps.get_db)
 ):
     activities = db.query(models.Activity).filter(models.Activity.id.in_(activity_ids)).all()
@@ -63,11 +63,9 @@ def edit_organization_form(request: Request, org_id: int, db: Session = Depends(
     if not org:
         return RedirectResponse("/organizations", status_code=303)
     
-    # Преобразуем phone_numbers и activity_ids для формы
     org.phone_numbers = org.phone_numbers.split(",") if org.phone_numbers else []
     org.activity_ids = [a.id for a in org.activities] if org.activities else []
 
-    # Загружаем все здания и активности для выпадающих списков
     buildings = db.query(models.Building).all()
     activities = db.query(models.Activity).all()
 
@@ -84,7 +82,7 @@ def update_organization_form(
     name: str = Form(...),
     phone_numbers: str = Form(...),
     building_id: int = Form(...),
-    activity_ids: List[int] = Form(..., alias="activity_ids"),  # <- теперь список чисел
+    activity_ids: List[int] = Form(..., alias="activity_ids"),
     db: Session = Depends(deps.get_db)
 ):
     org = db.query(models.Organization).filter(models.Organization.id == org_id).first()

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, Query, HTTPException
 from sqlalchemy.orm import Session
 from typing import List, Optional, Tuple
-from app import models, deps, crud  # предполагаем, что функции из твоего crud.py
+from app import models, deps, crud
 from app.deps import verify_api_key
 
 router = APIRouter(prefix="/api/organizations", tags=["Organizations API"], dependencies=[Depends(verify_api_key)])

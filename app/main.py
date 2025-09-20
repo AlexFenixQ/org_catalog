@@ -12,7 +12,6 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Подключаем API роутер
 app.include_router(activities.router)
 app.include_router(buildings.router)
 app.include_router(organizations.router)

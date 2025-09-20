@@ -29,8 +29,8 @@ class Activity(ActivityBase):
 
 class Organization(OrganizationBase):
     id: int
-    building: Optional[Building] = None  # <-- Сделано optional
-    activities: List[Activity] = []      # <-- По умолчанию пустой список
-    phone_numbers: List[str] = []        # <-- На случай пустого значения из БД
+    building: Optional[Building] = None
+    activities: List[Activity] = []
+    phone_numbers: List[str] = []
 
     model_config = {"from_attributes": True}

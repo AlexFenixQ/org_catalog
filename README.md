@@ -148,7 +148,7 @@ docker-compose run api alembic upgrade head
 Для наполнения базы тестовыми данными:
 
 ```bash
-docker-compose run api python app/populate_db.py
+docker-compose run --rm api python -m data.populate_db
 ```
 
 Пример добавляет:

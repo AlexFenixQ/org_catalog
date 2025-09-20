@@ -29,7 +29,6 @@ def activities_tree(request: Request, db: Session = Depends(deps.get_db)):
 
 @router.get("/new")
 def new_activity_form(request: Request, db: Session = Depends(deps.get_db)):
-    # Передаем все активности для выпадающего списка "Parent Activity"
     activities = db.query(models.Activity).all()
     return templates.TemplateResponse(
         "activity_form.html",
@@ -61,7 +60,6 @@ def edit_activity_form(request: Request, activity_id: int, db: Session = Depends
     activity = db.query(models.Activity).filter(models.Activity.id == activity_id).first()
     if not activity:
         return RedirectResponse("/activities/", status_code=303)
-    # Передаем все активности для выпадающего списка "Parent Activity"
     activities = db.query(models.Activity).filter(models.Activity.id != activity_id).all()
     return templates.TemplateResponse(
         "activity_form.html",
