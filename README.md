@@ -54,22 +54,32 @@ docker-compose down
 ## Структура проекта
 
 ```bash
-app/
-├── main.py            # FastAPI приложение
-├── models.py          # SQLAlchemy модели
-├── schemas.py         # Pydantic схемы
-├── deps.py            # Зависимости (get_db, verify_api_key)
-├── routers/
-│   ├── organizations.py  # Web + JSON API для организаций
-│   ├── activities.py     # Web + JSON API для деятельностей
-│   └── buildings.py      # Web + JSON API для зданий
-├── templates/         # Jinja2 HTML-шаблоны
-├── database.py        # Настройка SQLAlchemy
-└── populate_db.py     # Скрипт для тестовых данных
 alembic/
 ├── env.py
 ├── script.py.mako
 └── versions/
+app/
+├── routers/
+│   ├── activities.py  # Web для деятельностей
+│   ├── api_activities.py     # JSON API для деятельностей
+│   ├── api_buildings.py      # JSON API для зданий
+│   ├── api_organizations.py  # JSON API для организаций
+│   ├── buildings.py      # Web для зданий
+│   └── organizations.py  # Web для организаций
+├── templates/         # Jinja2 HTML-шаблоны
+│   ├── activity_form.html  # Html-форма для деятельностей
+│   ├── activity_tree.html     # Html-дерево для деятельностей
+│   ├── building_form.html      # Html-форма для зданий
+│   ├── building_list.html      # Html-таблица для зданий
+│   ├── org_form.html  # Html-форма для организаций
+│   └── org_list.html  # Html-таблица для организаций
+├── main.py            # FastAPI приложение
+├── models.py          # SQLAlchemy модели
+├── schemas.py         # Pydantic схемы
+├── deps.py            # Зависимости (get_db, verify_api_key)
+├── database.py        # Настройка SQLAlchemy
+└── populate_db.py     # Скрипт для тестовых данных
+
 Dockerfile
 docker-compose.yml
 requirements.txt
