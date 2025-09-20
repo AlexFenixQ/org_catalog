@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ 'Edit' if org else 'Create' }} Organization</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>{{ 'Edit' if org else 'Create' }} Organization</h1>
+    <form method="post">
+        <label>Name: <input type="text" name="name" value="{{ org.name if org else '' }}"></label><br><br>
+        <label>Phone Numbers (comma separated): <input type="text" name="phone_numbers" value="{{ org.phone_numbers | join(',') if org else '' }}"></label><br><br>
+        <label>Building:
+            <select name="building_id">
+                {% for b in buildings %}
+                <option value="{{ b.id }}" {% if org and org.building_id == b.id %}selected{% endif %}>{{ b.address }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+
+        <label>Activities:
+            <select name="activity_ids" multiple size="5">
+                {% for a in activities %}
+                <option value="{{ a.id }}" {% if org and a.id in org.activity_ids %}selected{% endif %}>
+                    {{ a.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="/organizations">Back to list</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activities Tree</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Activities</h1>
+    <a href="/activities/new">Create New Activity</a><br><br>
+
+    {% macro render_tree(nodes) %}
+    <ul>
+        {% for n in nodes %}
+            <li>
+                {{ n.name }} 
+                [<a href="/activities/edit/{{ n.id }}">Edit</a>]
+                [<a href="/activities/delete/{{ n.id }}">Delete</a>]
+                {% if n.children %}
+                    {{ render_tree(n.children) }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endmacro %}
+
+    {{ render_tree(activity_tree) }}
+
+    <br><a href="/organizations">Back to Organizations</a>
+</body>
+</html>

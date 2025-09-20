@@ -1,0 +1,128 @@
+/* Общие стили */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfcf7; /* слегка молочный фон */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+    color: #3a86ff;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #ff595e;
+}
+
+/* Таблицы */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+}
+
+tr:hover td {
+    background-color: #faf7f2;
+}
+
+/* Формы */
+form {
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #3a86ff;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3a86ff;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #ff595e;
+}
+
+/* Списки дерева активности */
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 6px 0;
+    padding-left: 12px;
+    position: relative;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 2px;
+    background-color: #ccc;
+}
+
+/* Навигация */
+.nav-links a {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buildings</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Buildings</h1>
+    <a href="/buildings/new">Create New Building</a><br><br>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Actions</th>
+        </tr>
+        {% for b in buildings %}
+        <tr>
+            <td>{{ b.id }}</td>
+            <td>{{ b.address }}</td>
+            <td>{{ b.latitude }}</td>
+            <td>{{ b.longitude }}</td>
+            <td>
+                <a href="/buildings/edit/{{ b.id }}">Edit</a>
+                <a href="/buildings/delete/{{ b.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="/organizations">Back to Organizations</a>
+</body>
+</html>

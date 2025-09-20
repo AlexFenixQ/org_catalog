@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ 'Edit' if building else 'Create' }} Building</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>{{ 'Edit' if building else 'Create' }} Building</h1>
+    <form method="post">
+        <label>Address: <input type="text" name="address" value="{{ building.address if building else '' }}"></label><br><br>
+        <label>Latitude: <input type="text" name="latitude" value="{{ building.latitude if building else '' }}"></label><br><br>
+        <label>Longitude: <input type="text" name="longitude" value="{{ building.longitude if building else '' }}"></label><br><br>
+        <button type="submit">Save</button>
+    </form>
+    <br><a href="/buildings/">Back to list</a>
+</body>
+</html>

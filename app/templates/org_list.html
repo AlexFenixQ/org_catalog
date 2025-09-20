@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Organizations</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Organizations</h1>
+    <a href="/organizations/org/new">Create New Organization</a><br><br>
+    <a href="/buildings">Buildings</a><br><br>
+    <a href="/activities">Activities</a><br><br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone Numbers</th>
+            <th>Building</th>
+            <th>Activities</th>
+            <th>Actions</th>
+        </tr>
+        {% for org in organizations %}
+        <tr>
+            <td>{{ org.id }}</td>
+            <td>{{ org.name }}</td>
+            <td>{{ org.phone_numbers | join(", ") }}</td>
+            <td>{{ org.building.address if org.building else '-' }}</td>
+            <td>{% if org.activities %}{{ org.activities | map(attribute='name') | join(", ") }}{% else %}-{% endif %}</td>
+            <td>
+                <a href="/organizations/org/edit/{{ org.id }}">Edit</a>
+                <a href="/organizations/org/delete/{{ org.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
