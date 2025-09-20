@@ -108,6 +108,8 @@ curl -H "x-api-key: SECRET_KEY_123" http://localhost:8000/organizations/
 
 ## Веб-интерфейс
 
+Доступ к веб-интерфейсу осуществляется по адресу http://localhost:8000/
+
 - /organizations — список организаций, CRUD формы
 - /buildings — список зданий, CRUD формы
 - /activities — дерево деятельностей, CRUD формы
