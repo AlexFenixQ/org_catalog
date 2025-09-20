@@ -29,8 +29,8 @@
 1. Клонируем репозиторий (или скопировать проект локально):
 
 ```bash
-git clone <repo_url>
-cd <repo_directory>
+git clone https://github.com/AlexFenixQ/org_catalog
+cd org_catalog
 ```
 
 2. Собираем Docker-образ:
